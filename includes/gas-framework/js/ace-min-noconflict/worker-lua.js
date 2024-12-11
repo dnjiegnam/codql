@@ -119,7 +119,7 @@
         else if (i.command)
             if (n[i.command]) n[i.command].apply(n, i.args);
             else {
-                if (!e[i.command]) throw new Error("Unknown command:" + i.command);
+                if (!e.hasOwnProperty(i.command) || typeof e[i.command] !== 'function') throw new Error("Unknown command:" + i.command);
                 e[i.command].apply(e, i.args);
             }
         else if (i.init) {
