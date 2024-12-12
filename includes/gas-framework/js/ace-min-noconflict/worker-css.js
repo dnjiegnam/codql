@@ -157,8 +157,10 @@
       e.initBaseUrls(i.tlns),
         require("ace/lib/es5-shim"),
         (r = e.sender = e.initSender());
-      var s = require(i.module)[i.classname];
-      n = e.main = new s(r);
+      if (require(i.module).hasOwnProperty(i.command)){
+        var s = require(i.module)[i.classname];
+        n = e.main = new s(r);
+      }
     }
   };
 })(this),
