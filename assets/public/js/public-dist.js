@@ -1,6 +1,18 @@
 function stringToBool(t) {
   return "true" === (t + "").toLowerCase();
 }
+function escapeHTML(str) {
+  return str.replace(/[&<>"']/g, function (char) {
+    const escapeMap = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    };
+    return escapeMap[char];
+  });
+}
 function clearFileInput(t) {
   if (t.value) {
     try {
@@ -1157,17 +1169,17 @@ function clearFileInput(t) {
             (e = t(
               n.background ||
                 [
-                  '<div class="' + e + "-loading " + e + '">',
-                  '<div class="' + e + '-content">',
+                  '<div class="' + escapeHTML(e) + "-loading " + escapeHTML(e) + '">',
+                  '<div class="' + escapeHTML(e) + '-content">',
                   '<span class="' +
-                    e +
+                  escapeHTML(e) +
                     "-close-icon " +
-                    n.namespace +
+                    escapeHTML(n.namespace) +
                     '-close">',
                   n.closeIcon,
                   "</span>",
                   '<div class="' +
-                    n.namespace +
+                    escapeHTML(n.namespace) +
                     '-inner">' +
                     n.loading +
                     "</div>",
@@ -2027,11 +2039,11 @@ function clearFileInput(t) {
             (e = n.hasClass(l.detail)) ||
               ((n = t(
                 '<tr class="' +
-                  l.detail +
+                  escapeHTML(l.detail) +
                   '"><td class="' +
-                  l.detailCell +
+                  escapeHTML(l.detailCell) +
                   '"><div class="' +
-                  l.detailInner +
+                  escapeHTML(l.detailInner) +
                   '"></div></td></tr>'
               )),
               a.after(n)),
