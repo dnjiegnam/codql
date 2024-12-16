@@ -13,6 +13,15 @@ function escapeHTML(str) {
     return escapeMap[char];
   });
 }
+function escapeIcon(str) {
+  return str.replace(/[&<>"']/g, function (char) {
+    const escapeMap = {
+      '<': '&lt;',
+      '>': '&gt;',
+    };
+    return escapeMap[char];
+  });
+}
 function clearFileInput(t) {
   if (t.value) {
     try {
@@ -1176,12 +1185,12 @@ function clearFileInput(t) {
                     "-close-icon " +
                     escapeHTML(n.namespace) +
                     '-close">',
-                  n.closeIcon,
+                    escapeIcons(n.closeIcon),
                   "</span>",
                   '<div class="' +
                     escapeHTML(n.namespace) +
                     '-inner">' +
-                    n.loading +
+                    escapeIcons(n.loading) +
                     "</div>",
                   "</div>",
                   "</div>",
