@@ -22,6 +22,16 @@ function escapeIcon(str) {
     return escapeMap[char];
   });
 }
+function escapeOption(str) {
+  return str.replace(/[&<>"']/g, function (char) {
+    const escapeMap = {
+      '&': '&amp;',
+      '"': '&quot;',
+      "'": '&#39;',
+    };
+    return escapeMap[char];
+  });
+}
 function clearFileInput(t) {
   if (t.value) {
     try {
@@ -1185,12 +1195,12 @@ function clearFileInput(t) {
                     "-close-icon " +
                     escapeHTML(n.namespace) +
                     '-close">',
-                    escapeIcons(n.closeIcon),
+                    escapeIcon(n.closeIcon),
                   "</span>",
                   '<div class="' +
                     escapeHTML(n.namespace) +
                     '-inner">' +
-                    escapeIcons(n.loading) +
+                    escapeIcon(n.loading) +
                     "</div>",
                   "</div>",
                   "</div>",
@@ -3377,7 +3387,7 @@ function clearFileInput(t) {
                   (i.push(a),
                   (r += '<option value="' + a + '">' + a + "</option>"));
             }),
-              1 < i.length ? n.append(r) : n.hide(),
+              1 < i.length ? n.append(escapeOption(r)) : n.hide(),
               n.on("change", function (a) {
                 a.preventDefault(),
                   e.trigger("footable_filter", {

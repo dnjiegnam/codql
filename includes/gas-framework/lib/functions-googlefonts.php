@@ -3,7 +3,7 @@
 // if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /*
 // We use this function to generate the fonts.
-bfi_get_googlefonts_from_json(file_get_contents("https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyB7JMGpC3uyoLm6XfFIU3rSndRQnnfr27M"));
+bfi_get_googlefonts_from_json(file_get_contents("https://www.googleapis.com/webfonts/v1/webfonts?key=***********************"));
 function bfi_get_googlefonts_from_json($json) {
 	$res = json_decode( $json );
 	$allFonts = array();
