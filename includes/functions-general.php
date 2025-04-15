@@ -2242,12 +2242,6 @@ if( !function_exists( 'wpas_get_allowed_html_tags' ) ) {
 				'width' => true,
 				'usemap'=> true,			
 			], 
-			'link' => [
-				'rel' => true,
-				'id' => true,
-				'href' => true,	
-				'media' => true,	
-			],
 			'a' => [
 				'download' => true,
 				'href' => true,

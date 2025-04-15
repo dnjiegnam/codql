@@ -608,22 +608,19 @@ class WPAS_Product_Sync {
 
 			if ( false !== $term ) {
 
-				if( is_a( $term, 'WP_Term' ) )
-				{
-					$new_terms[] = apply_filters( 'wpas_get_terms_term', $term, $this->taxonomy );
+				$new_terms[] = apply_filters( 'wpas_get_terms_term', $term, $this->taxonomy );
 
-					if ( 'id' === $args['orderby'] ) {
+				if ( 'id' === $args['orderby'] ) {
 
-						$sort[] = (int) $term->{$args['orderby']};
+					$sort[] = (int) $term->{$args['orderby']};
 
-					} else {					
-						if( isset( $term->{$args['orderby']} ) )
-						{
-							$sort[] = strtolower( $term->{$args['orderby']} ); // Make lower case to get a natural sort since mixed case yields undesired results.
-						}										
-					}
-				}				
+				} else {
+
+					$sort[] = strtolower( $term->{$args['orderby']} ); // Make lower case to get a natural sort since mixed case yields undesired results.
+				}
+
 			}
+
 		}
 
 		// Ensure terms are sorted according to the supplied args.
