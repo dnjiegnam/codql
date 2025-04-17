@@ -1,6 +1,14 @@
 function stringToBool(t) {
     return "true" === (t + "").toLowerCase();
 }
+function escapeHtml(str) {
+    return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 function clearFileInput(t) {
     if (t.value) {
         var e, a, n;
@@ -2338,7 +2346,7 @@ function clearFileInput(t) {
                   (a = []),
                   (n = ""),
                   r.each(function (e, i) {
-                      (i = t(i).find(".wpas-label-status").text()), -1 == a.indexOf(i) && (a.push(i), (n += '<option value="' + i + '">' + i + "</option>"));
+                      (i = t(i).find(".wpas-label-status").text()), -1 == a.indexOf(i) && (a.push(i), (n += '<option value="' + escapeHtml(i) + '">' + escapeHtml(i) + "</option>"));
                   }),
                   1 < a.length ? e.append(n) : e.hide(),
                   e.on("change", function (e) {
