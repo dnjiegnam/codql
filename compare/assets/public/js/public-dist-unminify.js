@@ -805,12 +805,12 @@ function clearFileInput(t) {
                         (e = t(
                             n.background ||
                                 [
-                                    '<div class="' + e + "-loading " + e + '">',
-                                    '<div class="' + e + '-content">',
-                                    '<span class="' + e + "-close-icon " + n.namespace + '-close">',
-                                    n.closeIcon,
+                                    '<div class="' + escapeHtml(e) + "-loading " + escapeHtml(e) + '">',
+                                    '<div class="' + escapeHtml(e) + '-content">',
+                                    '<span class="' + escapeHtml(e) + "-close-icon " +escapeHtml( n.namespace) + '-close">',
+                                    escapeHtml(n.closeIcon),
                                     "</span>",
-                                    '<div class="' + n.namespace + '-inner">' + n.loading + "</div>",
+                                    '<div class="' + escapeHtml(n.namespace) + '-inner">' + escapeHtml(n.loading) + "</div>",
                                     "</div>",
                                     "</div>",
                                 ].join("")
