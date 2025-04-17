@@ -1444,7 +1444,7 @@ function clearFileInput(t) {
                         return !1;
                     var r = a.find("> td:visible").length;
                     return (
-                        (e = n.hasClass(l.detail)) || ((n = t('<tr class="' + l.detail + '"><td class="' + l.detailCell + '"><div class="' + l.detailInner + '"></div></td></tr>')), a.after(n)),
+                        (e = n.hasClass(l.detail)) || ((n = t('<tr class="' + escapeHtml(l.detail) + '"><td class="' + escapeHtml(l.detailCell) + '"><div class="' + escapeHtml(l.detailInner )+ '"></div></td></tr>')), a.after(n)),
                         n.find("> td:first").attr("colspan", r),
                         (r = n.find("." + l.detailInner).empty()),
                         s.createDetail(r, i, s.createGroupedDetail, s.detailSeparator, l),
