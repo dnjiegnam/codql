@@ -162,8 +162,12 @@
       e.initBaseUrls(i.tlns),
         require("ace/lib/es5-shim"),
         (r = e.sender = e.initSender());
-      var s = require(i.module)[i.classname];
-      n = e.main = new s(r);
+      var s = require(i.module)[i.classname]; 
+      if (typeof s === 'function') {
+        n = e.main = new s(r);
+      } else {
+        throw new Error(`Invalid constructor: ${i.classname} is not a function`);
+      }
     }
   };
 })(this),
